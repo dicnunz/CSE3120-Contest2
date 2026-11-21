@@ -136,6 +136,22 @@ PlaceMines PROC USES eax ebx ecx
 ; Returns: nothing
 ; Requires: Randomize was called once, ResetBoard cleared CellType
 ;-----------------------------------------------------
+    mov CellType[CenterCell],CellFree
+    mov ecx,MinePairs           ; pairs still to place
+PickCell:
+    mov eax,CellCount
+    call RandomRange            ; EAX = 0 to 24
+    mov ebx,eax                 ; EBX = the cell picked
+    call IsOffLimits
+    cmp eax,1
+    je PickCell                 ; corners, next to corners or the center
+    cmp CellType[ebx],CellEmpty
+    jne PickCell                ; already has a mine
+    mov CellType[ebx],CellFree
+    mov eax,LastCell
+    sub eax,ebx                 ; EAX = 24 - c, the mirror cell
+    mov CellType[eax],CellFree
+    loop PickCell
     ret
 PlaceMines ENDP
 

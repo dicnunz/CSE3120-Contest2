@@ -82,7 +82,17 @@ IsOffLimits PROC USES ecx esi
 ; Receives: EAX = cell
 ; Returns: EAX = 1 if the cell is in OffLimits, 0 if a mine can go there
 ;-----------------------------------------------------
+    mov esi,0
+    mov ecx,LENGTHOF OffLimits
+CheckCell:
+    cmp al,OffLimits[esi]
+    je Banned
+    inc esi
+    loop CheckCell
     mov eax,0                   ; not in the table
+    ret
+Banned:
+    mov eax,1
     ret
 IsOffLimits ENDP
 

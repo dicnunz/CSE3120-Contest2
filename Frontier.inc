@@ -32,3 +32,9 @@ CmdRight    = 4
 CmdNext     = 5                 ; space or enter
 CmdNewRun   = 6                 ; r
 CmdQuit     = 7                 ; q
+
+EXTERNDEF CellType:BYTE, PlayerCell:BYTE, BotCell:BYTE  ; Board.asm
+EXTERNDEF PlayerPoints:DWORD, BotPoints:DWORD, TurnNumber:DWORD
+EXTERNDEF BoardLevel:DWORD, GamePhase:DWORD
+
+CellToRowCol PROTO              ; Board.asm

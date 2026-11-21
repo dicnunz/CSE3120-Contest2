@@ -125,4 +125,18 @@ ClearCell:
     ret
 ResetBoard ENDP
 
+
+;-----------------------------------------------------
+PlaceMines PROC USES eax ebx ecx
+;
+; Puts the center mine and MinePairs random mirrored pairs on the board.
+; A mine on cell c also goes on cell 24 - c, so both corners are the same
+; distance from the same mines and neither side starts closer.
+; Receives: nothing
+; Returns: nothing
+; Requires: Randomize was called once, ResetBoard cleared CellType
+;-----------------------------------------------------
+    ret
+PlaceMines ENDP
+
 END

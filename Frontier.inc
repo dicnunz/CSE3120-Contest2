@@ -41,3 +41,4 @@ CellToRowCol PROTO              ; Board.asm
 NeighborCell PROTO
 IsOffLimits PROTO
 ResetBoard PROTO
+PlaceMines PROTO

@@ -42,3 +42,4 @@ NeighborCell PROTO
 IsOffLimits PROTO
 ResetBoard PROTO
 PlaceMines PROTO
+NewBoard PROTO

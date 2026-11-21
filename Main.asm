@@ -12,6 +12,8 @@
 INCLUDE Frontier.inc
 .code
 main PROC
+    call Randomize              ; seed RandomRange so every board is new
+    call NewBoard
     exit
 main ENDP
 END main

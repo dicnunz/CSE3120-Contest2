@@ -155,4 +155,17 @@ PickCell:
     ret
 PlaceMines ENDP
 
+
+;-----------------------------------------------------
+NewBoard PROC
+;
+; Sets up a fresh board for the current BoardLevel.
+; Receives: nothing
+; Returns: nothing
+;-----------------------------------------------------
+    call ResetBoard
+    call PlaceMines
+    ret
+NewBoard ENDP
+
 END

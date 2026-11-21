@@ -40,3 +40,4 @@ EXTERNDEF BoardLevel:DWORD, GamePhase:DWORD
 CellToRowCol PROTO              ; Board.asm
 NeighborCell PROTO
 IsOffLimits PROTO
+ResetBoard PROTO

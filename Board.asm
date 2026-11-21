@@ -96,4 +96,18 @@ Banned:
     ret
 IsOffLimits ENDP
 
+
+;-----------------------------------------------------
+ResetBoard PROC USES eax ecx esi
+;
+; Clears the mines, puts both soldiers back in their corners and starts
+; the score. The bot gets HeadStart points for every board already
+; cleared in this run.
+; Receives: nothing
+; Returns: nothing
+; Requires: BoardLevel holds the number of the board to start
+;-----------------------------------------------------
+    ret
+ResetBoard ENDP
+
 END

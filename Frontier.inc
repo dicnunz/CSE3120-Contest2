@@ -16,3 +16,19 @@ CellEmpty   = 0                 ; values in CellType
 CellFree    = 1                 ; a mine nobody owns yet
 CellPlayer  = 2                 ; a mine the player owns
 CellBot     = 3                 ; a mine the bot owns
+
+NoCell      = -1                ; NeighborCell's answer past the edge
+
+PhaseYou    = 0                 ; values in GamePhase
+PhaseBot    = 1                 ; the bot is about to move
+PhaseWon    = 2                 ; the board is cleared
+PhaseLost   = 3                 ; the run is over
+
+CmdNone     = 0                 ; values ReadCommand returns in AL
+CmdUp       = 1                 ; the four moves double as directions
+CmdDown     = 2
+CmdLeft     = 3
+CmdRight    = 4
+CmdNext     = 5                 ; space or enter
+CmdNewRun   = 6                 ; r
+CmdQuit     = 7                 ; q

@@ -34,6 +34,25 @@ NeighborCell PROC USES ecx edx
 ; Receives: EAX = cell, EBX = CmdUp, CmdDown, CmdLeft or CmdRight
 ; Returns: EAX = the next cell, or NoCell past the edge of the board
 ;-----------------------------------------------------
+    mov ecx,eax                 ; ECX = the starting cell
+    call CellToRowCol           ; EAX = row, EDX = column
+    cmp ebx,CmdUp
+    jne NotUp
+    cmp eax,0
+    je OffBoard                 ; already on the top row
+    sub ecx,BoardSize
+    jmp Done
+NotUp:
+    cmp ebx,CmdDown
+    jne NotDown
+    cmp eax,BoardSize - 1
+    je OffBoard                 ; already on the bottom row
+    add ecx,BoardSize
+    jmp Done
+NotDown:
+Done:
+    mov eax,ecx
+    ret
 OffBoard:
     mov eax,NoCell
     ret

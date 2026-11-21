@@ -107,6 +107,21 @@ ResetBoard PROC USES eax ecx esi
 ; Returns: nothing
 ; Requires: BoardLevel holds the number of the board to start
 ;-----------------------------------------------------
+    mov esi,0
+    mov ecx,CellCount
+ClearCell:
+    mov CellType[esi],CellEmpty
+    inc esi
+    loop ClearCell
+    mov PlayerCell,0
+    mov BotCell,LastCell
+    mov PlayerPoints,0
+    mov eax,BoardLevel
+    dec eax                     ; boards already cleared
+    imul eax,eax,HeadStart
+    mov BotPoints,eax
+    mov TurnNumber,1
+    mov GamePhase,PhaseYou
     ret
 ResetBoard ENDP
 

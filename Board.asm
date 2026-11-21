@@ -26,4 +26,17 @@ CellToRowCol PROC USES ebx
     ret
 CellToRowCol ENDP
 
+
+;-----------------------------------------------------
+NeighborCell PROC USES ecx edx
+;
+; Finds the cell one step away in a direction.
+; Receives: EAX = cell, EBX = CmdUp, CmdDown, CmdLeft or CmdRight
+; Returns: EAX = the next cell, or NoCell past the edge of the board
+;-----------------------------------------------------
+OffBoard:
+    mov eax,NoCell
+    ret
+NeighborCell ENDP
+
 END

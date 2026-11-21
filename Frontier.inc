@@ -38,3 +38,4 @@ EXTERNDEF PlayerPoints:DWORD, BotPoints:DWORD, TurnNumber:DWORD
 EXTERNDEF BoardLevel:DWORD, GamePhase:DWORD
 
 CellToRowCol PROTO              ; Board.asm
+NeighborCell PROTO

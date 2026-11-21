@@ -50,6 +50,16 @@ NotUp:
     add ecx,BoardSize
     jmp Done
 NotDown:
+    cmp ebx,CmdLeft
+    jne NotLeft
+    cmp edx,0
+    je OffBoard                 ; already in the left column
+    dec ecx
+    jmp Done
+NotLeft:                        ; anything else moves right
+    cmp edx,BoardSize - 1
+    je OffBoard                 ; already in the right column
+    inc ecx
 Done:
     mov eax,ecx
     ret

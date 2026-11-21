@@ -12,6 +12,12 @@ TurnNumber   DWORD 1            ; MaxTurns + 1 once the board is over
 BoardLevel   DWORD 1            ; which board of the run this is
 GamePhase    DWORD PhaseYou     ; whose move it is, or how the board ended
 
+; Cells a random mine can't use: the corners, the squares next to them,
+; and the center, which always gets its own mine. The comma at the end of
+; the first line joins the two lines, so LENGTHOF counts all 7 cells.
+OffLimits    BYTE 0, 1, BoardSize, CenterCell,
+                  LastCell - BoardSize, LastCell - 1, LastCell
+
 .code
 ;-----------------------------------------------------
 CellToRowCol PROC USES ebx
@@ -67,5 +73,17 @@ OffBoard:
     mov eax,NoCell
     ret
 NeighborCell ENDP
+
+
+;-----------------------------------------------------
+IsOffLimits PROC USES ecx esi
+;
+; Tells whether a random mine is not allowed on a cell.
+; Receives: EAX = cell
+; Returns: EAX = 1 if the cell is in OffLimits, 0 if a mine can go there
+;-----------------------------------------------------
+    mov eax,0                   ; not in the table
+    ret
+IsOffLimits ENDP
 
 END

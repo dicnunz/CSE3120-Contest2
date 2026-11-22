@@ -12,6 +12,13 @@ MaxTurns    = 20                ; turns on each board
 HeadStart   = 3                 ; bot points added for each board cleared
 BotDelay    = 400               ; milliseconds before the bot moves
 
+TileWidth   = 9                 ; a tile is 9 characters wide
+TileHeight  = 4                 ; and 4 rows tall
+BoardLeft   = 1                 ; screen column of the board's corner
+BoardTop    = 1                 ; screen row of the board's corner
+PanelLeft   = BoardLeft + BoardSize * TileWidth + 3  ; side panel column
+PanelWidth  = 31                ; characters cleared on a panel line
+
 CellEmpty   = 0                 ; values in CellType
 CellFree    = 1                 ; a mine nobody owns yet
 CellPlayer  = 2                 ; a mine the player owns

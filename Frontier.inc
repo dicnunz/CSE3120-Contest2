@@ -51,3 +51,4 @@ ResetBoard PROTO
 PlaceMines PROTO
 NewBoard PROTO
 WriteAt PROTO                   ; Render.asm
+WriteTwoDigits PROTO

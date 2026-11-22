@@ -50,3 +50,4 @@ IsOffLimits PROTO
 ResetBoard PROTO
 PlaceMines PROTO
 NewBoard PROTO
+WriteAt PROTO                   ; Render.asm

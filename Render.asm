@@ -49,10 +49,26 @@ TileBackground PROC USES ebx edx
 ; Receives: EAX = cell
 ; Returns: EAX = background color
 ;-----------------------------------------------------
+    mov bl,CellType[eax]
+    cmp bl,CellFree
+    je FreeMine
+    cmp bl,CellPlayer
+    je PlayerMine
+    cmp bl,CellBot
+    je BotMine
     call CellToRowCol           ; EAX = row, EDX = column
     add eax,edx
     and eax,1                   ; 0 when row + column is even, 1 when odd
     shl eax,3                   ; 0 is black and 8 is gray
+    ret
+FreeMine:
+    mov eax,brown
+    ret
+PlayerMine:
+    mov eax,blue
+    ret
+BotMine:
+    mov eax,red
     ret
 TileBackground ENDP
 

@@ -39,4 +39,21 @@ TwoDigits:
     ret
 WriteTwoDigits ENDP
 
+
+;-----------------------------------------------------
+TileBackground PROC USES ebx edx
+;
+; Picks a tile's background color: brown for a free mine, blue for the
+; player's mine, red for the bot's, and a black and gray checkerboard
+; for tiles without a mine.
+; Receives: EAX = cell
+; Returns: EAX = background color
+;-----------------------------------------------------
+    call CellToRowCol           ; EAX = row, EDX = column
+    add eax,edx
+    and eax,1                   ; 0 when row + column is even, 1 when odd
+    shl eax,3                   ; 0 is black and 8 is gray
+    ret
+TileBackground ENDP
+
 END
